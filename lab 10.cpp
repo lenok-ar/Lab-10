@@ -118,45 +118,6 @@ string multiplication(string num1, string num2) {
 
     return result; 
 }
-
-string division(string num1, string num2) {
-
-    string a; // Частное
-    string ost = num1; // Остаток
-
-    if ((num1 == "0") || (num2 == "0")) {
-        return "Деление невозможно (одно число = 0)";
-    }
-
-    if (num1 < num2) {
-        return 0;
-    }
-
-    while (ost >= num2) {
-        string temp = num2;
-        string atemp = "1";
-
-        while (temp + "0" <= ost) {
-            temp += "0";
-            atemp += "0";
-        }
-
-        ost = differense(ost, temp);
-
-        a = sum(a, atemp);
-    }
-
-    while (a.size() > 1 && a[0] == '0') {
-        a.erase(a.begin());
-    }
-
-    if (a.empty()) {
-        return "0";
-    }
-    else {
-        return a; 
-    }
-}
   
 int main() {
     setlocale(LC_ALL, "RU");
@@ -171,7 +132,6 @@ int main() {
     cout << "Сумма: " << sum(num1, num2) << endl;
     cout << "Разность: " << differense(num1, num2) << endl;
     cout << "Произведение: " << multiplication(num1, num2) << endl;
-    cout << "Деление: " << division(num1, num2) << endl;
 
     return 0;
 }
